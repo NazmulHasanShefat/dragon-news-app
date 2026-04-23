@@ -3,7 +3,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 export default function MainNavigation(){
     return(
-        <nav className="grid grid-cols-12 justify-center items-center w-full max-w-322 mx-auto">
+        <nav className="grid grid-cols-12 justify-center items-center w-full max-w-322 sticky top-0 z-20 bg-white mx-auto bg-white">
             <ul className="col-span-8 flex items-center text-[18px]">
                 <Link href={"/"} className="hover:bg-blue-500 px-4 py-2 hover:text-white">Home</Link>
                 <Link href={"/about"} className="hover:bg-blue-500 px-4 py-2 hover:text-white">About</Link>
