@@ -18,7 +18,7 @@ export default function SignUpModal() {
     })
     if(error){
       console.log( error)
-      toast.danger("faild to registerd")
+      toast.danger(`faild to registerd ${error.message}`)
     }
     if(data){
       console.log("register successfull ", data)

@@ -1,19 +1,30 @@
+import dns from "node:dns";
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
 import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
-import dns from "dns";
-dns.setServers(["8.8.8.8", "8.8.4.4"]);
-// dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 const client = new MongoClient(process.env.DB_URL);
-const db = client.db();
+const db = client.db("dragonNewsInfo");
 
 export const auth = betterAuth({
+  baseURL: "http://localhost:3000",
   emailAndPassword: {
     enabled: true,
   },
   database: mongodbAdapter(db, {
-    // Optional: if you don't provide a client, database transactions won't be enabled.
     client,
   }),
+
+  socialProviders: {
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+    },
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    },
+  },
 });
