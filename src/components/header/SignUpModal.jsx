@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { Rocket } from "@gravity-ui/icons";
 import { Button, Input, Label, Modal, toast } from "@heroui/react";
 import Link from "next/link";
+import SocialLogin from "../ui/SocialLogin";
 
 export default function SignUpModal() {
   const handleSubmit = async (e) => {
@@ -88,6 +89,7 @@ export default function SignUpModal() {
                     sign in
                   </Link>
                 </p>
+                <SocialLogin />
               </Modal.Footer>
             </Modal.Dialog>
           </form>

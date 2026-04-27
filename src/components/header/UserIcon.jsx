@@ -1,11 +1,24 @@
 
-import { authClient } from "@/lib/auth-client";
+import { authClient, signOut } from "@/lib/auth-client";
 import {ArrowRightFromSquare, Gear, Persons} from "@gravity-ui/icons";
 import {Avatar, Dropdown, Label} from "@heroui/react";
 
 export default function UserIcon() {
     const {data:session,  isPending} = authClient.useSession();
     console.log(session)
+    const handleSignOut = async ()=>{
+      try {
+        await signOut({
+          fetchOptions: {
+            onSuccess: ()=>{
+              window.location.assign("/")
+            }
+          }
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    }
   return (
     <Dropdown>
       <Dropdown.Trigger className="rounded-full">
@@ -53,7 +66,7 @@ export default function UserIcon() {
             </div>
           </Dropdown.Item>
           <Dropdown.Item id="logout" textValue="Logout" variant="danger">
-            <div className="flex w-full items-center justify-between gap-2">
+            <div onClick={handleSignOut} className="flex w-full items-center justify-between gap-2">
               <Label>Log Out</Label>
               <ArrowRightFromSquare className="size-3.5 text-danger" />
             </div>
