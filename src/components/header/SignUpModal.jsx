@@ -34,7 +34,7 @@ export default function SignUpModal() {
       <Modal.Backdrop>
         <Modal.Container>
           <form onSubmit={handleSubmit}>
-            <Modal.Dialog className="sm:max-w-[360px] min-w-[400px]">
+            <Modal.Dialog className="min-w-50 lg:min-w-100 sm:min-w-90">
               <Modal.CloseTrigger />
               <Modal.Header>
                 <Modal.Icon className="bg-default text-foreground">

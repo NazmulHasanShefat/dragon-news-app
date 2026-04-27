@@ -29,7 +29,7 @@ export default function SignInModal() {
       </Button>
       <Modal.Backdrop>
         <Modal.Container>
-          <Modal.Dialog className="sm:max-w-[360px] min-w-[400px]">
+          <Modal.Dialog className="sm:max-w-90 min-w-50 lg:min-w-[100]">
             <form onSubmit={handleSignIn}>
             <Modal.CloseTrigger />
             <Modal.Header>
@@ -66,9 +66,9 @@ export default function SignInModal() {
                 sign in
               </Button>
               <p>{"I don't hove any account"} <Link href={"/sign-in"} className="font-bold hover:underline text-blue-500">sign up</Link></p>
-              <SocialLogin />
             </Modal.Footer>
             </form>
+              <SocialLogin />
           </Modal.Dialog>
         </Modal.Container>
       </Modal.Backdrop>

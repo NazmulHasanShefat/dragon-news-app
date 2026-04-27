@@ -8,6 +8,7 @@ import { authClient, signOut } from "@/lib/auth-client";
 import { AlertBox } from "./AlertBox";
 import UserIcon from "./UserIcon";
 import { MdMenuOpen } from "react-icons/md";
+import { MenuDrower } from "./MenuDrower";
 
 export default function MainNavigation() {
   const currentPathLocation = usePathname();
@@ -29,7 +30,11 @@ export default function MainNavigation() {
   };
   return (
     <nav className="grid grid-cols-12 px-3 justify-center items-center w-full mt-5 py-3 max-w-322 sticky top-0 z-20 bg-white mx-auto bg-white">
-      <MdMenuOpen size={40} className="col-span-8 sm:hidden"/>
+      {/* <MdMenuOpen size={40} className="col-span-8 sm:hidden"/> */}
+      <div className="col-span-8 sm:hidden">
+      <MenuDrower/>
+
+      </div>
       <ul className="col-span-8 items-center text-[18px] hidden sm:flex">
         <Link
           href={"/"}
